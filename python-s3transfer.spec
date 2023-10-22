@@ -2,18 +2,19 @@
 # Conditional build:
 %bcond_without	tests	# unit tests
 %bcond_without	python2 # CPython 2.x module
-%bcond_with	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module (built from python3-s3transfer.spec)
 
 Summary:	Amazon S3 Transfer Manager
 Summary(pl.UTF-8):	Zarządca transferu danych Amazon S3
 Name:		python-s3transfer
-Version:	0.3.4
-Release:	2
+# keep < 0.5 here for python2 support, aligned with python-boto3.spec
+Version:	0.3.7
+Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/s3transfer/
 Source0:	https://files.pythonhosted.org/packages/source/s/s3transfer/s3transfer-%{version}.tar.gz
-# Source0-md5:	b0145fc2087107262b6c4d0f077ad3e2
+# Source0-md5:	665572c41635914e419631e57dd2a365
 Patch0:		%{name}-mock.patch
 Patch1:		%{name}-tests.patch
 URL:		https://pypi.org/project/s3transfer/
