@@ -54,6 +54,20 @@
  
  from tests import unittest
  from s3transfer.bandwidth import RequestExceededException
+--- s3transfer-0.4.2/tests/unit/test_crt.py.orig	2021-04-22 20:10:22.000000000 +0200
++++ s3transfer-0.4.2/tests/unit/test_crt.py	2023-10-22 17:54:57.308087991 +0200
+@@ -11,7 +11,10 @@
+ # ANY KIND, either express or implied. See the License for the specific
+ # language governing permissions and limitations under the License.
+ import unittest
+-import mock
++try:
++    import mock
++except ImportError:
++    from unittest import mock
+ 
+ from botocore.session import Session
+ from botocore.credentials import CredentialResolver, ReadOnlyCredentials
 --- s3transfer-0.3.4/tests/unit/test_download.py.orig	2021-01-11 20:17:48.000000000 +0100
 +++ s3transfer-0.3.4/tests/unit/test_download.py	2021-02-14 10:54:24.266848646 +0100
 @@ -15,7 +15,10 @@ import os

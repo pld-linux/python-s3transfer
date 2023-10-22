@@ -7,14 +7,14 @@
 Summary:	Amazon S3 Transfer Manager
 Summary(pl.UTF-8):	Zarządca transferu danych Amazon S3
 Name:		python-s3transfer
-# keep < 0.5 here for python2 support, aligned with python-boto3.spec
-Version:	0.3.7
+# keep 0.4.x here for python2 support
+Version:	0.4.2
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/s3transfer/
 Source0:	https://files.pythonhosted.org/packages/source/s/s3transfer/s3transfer-%{version}.tar.gz
-# Source0-md5:	665572c41635914e419631e57dd2a365
+# Source0-md5:	a6771f1bbff440e3c7f550357c3e5ee1
 Patch0:		%{name}-mock.patch
 Patch1:		%{name}-tests.patch
 URL:		https://pypi.org/project/s3transfer/
@@ -24,6 +24,7 @@ BuildRequires:	python-setuptools
 %if %{with tests}
 BuildRequires:	python-botocore >= 1.12.36
 BuildRequires:	python-futures >= 2.2.0
+BuildRequires:	python-futures < 4
 BuildRequires:	python-mock >= 1.3.0
 BuildRequires:	python-nose >= 1.3.3
 BuildRequires:	python-six
